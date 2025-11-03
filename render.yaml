@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: chatgpt-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: PORT
+        fromService:
+          name: chatgpt-backend
+          type: web
+          property: port
+
