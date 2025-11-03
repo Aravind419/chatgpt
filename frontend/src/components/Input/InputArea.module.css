@@ -1,0 +1,393 @@
+/* Input area */
+.inputArea {
+  padding: 20px 16px 28px;
+  background: linear-gradient(to top, rgba(247,247,248,1) 75%, rgba(247,247,248,0));
+  border-top: none;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+}
+
+.inputWrapper {
+  max-width: 740px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.inputWrapper.dragOver {
+  background: rgba(16, 163, 127, 0.05);
+}
+
+.attachBtn {
+  background: transparent;
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 40px;
+  max-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #6b7280;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+  padding: 0;
+  aspect-ratio: 1;
+}
+
+.attachBtn i {
+  line-height: 1;
+}
+
+.attachBtn:hover {
+  background: #f3f4f6;
+  border-color: #10a37f;
+  color: #10a37f;
+}
+
+.inputContainer {
+  flex: 1;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 24px;
+  padding: 8px 12px 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 0 0 rgba(16, 163, 127, 0);
+  transition: all 0.2s ease;
+}
+
+.inputContainer:focus-within {
+  border-color: #10a37f;
+  box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.1);
+}
+
+.imagePreviewContainer {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  bottom: 56px;
+  left: 52px;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.imagePreviewContainer:empty {
+  display: none;
+}
+
+.imagePreviewItem {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #e5e7eb;
+}
+
+.imagePreviewItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imagePreviewRemove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+
+.imagePreviewRemove:hover {
+  background: rgba(255, 0, 0, 1);
+}
+
+.userInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 8px 0;
+  background: transparent;
+  color: #1f2937;
+  min-width: 0;
+}
+
+.userInput::placeholder {
+  color: #9ca3af;
+}
+
+.inputActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.voiceInputBtn {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #6b7280;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.voiceInputBtn i {
+  line-height: 1;
+}
+
+.voiceInputBtn:hover {
+  background: #f3f4f6;
+  color: #10a37f;
+}
+
+.voiceInputBtn.recording {
+  color: #ef4444;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.sendBtn {
+  background-color: #10a37f;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  max-width: 32px;
+  max-height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  padding: 0;
+  aspect-ratio: 1;
+}
+
+.sendBtn i {
+  line-height: 1;
+}
+
+.sendBtn:hover {
+  background-color: #0e8c6d;
+}
+
+.sendBtn:active {
+  transform: scale(0.9);
+}
+
+.sendBtn:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Dark theme */
+:global(body.dark-theme) .inputArea {
+  background: linear-gradient(to top, rgba(16,17,20,1) 75%, rgba(16,17,20,0));
+}
+
+:global(body.dark-theme) .attachBtn {
+  background: transparent;
+  border-color: #4b5563;
+  color: #9ca3af;
+}
+
+:global(body.dark-theme) .attachBtn:hover {
+  background: #374151;
+  border-color: #10a37f;
+  color: #10a37f;
+}
+
+:global(body.dark-theme) .inputContainer {
+  background: #2a2b32;
+  border-color: #4b5563;
+}
+
+:global(body.dark-theme) .inputContainer:focus-within {
+  border-color: #10a37f;
+  box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.2);
+}
+
+:global(body.dark-theme) .userInput {
+  color: #e5e7eb;
+}
+
+:global(body.dark-theme) .userInput::placeholder {
+  color: #6b7280;
+}
+
+:global(body.dark-theme) .voiceInputBtn {
+  color: #9ca3af;
+}
+
+:global(body.dark-theme) .voiceInputBtn:hover {
+  background: #374151;
+  color: #10a37f;
+}
+
+:global(body.dark-theme) .imagePreviewContainer {
+  background: #1e1f24;
+  border-color: #2a2b32;
+}
+
+:global(body.dark-theme) .imagePreviewItem {
+  border-color: #2a2b32;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .inputArea {
+    padding: 12px 8px max(16px, env(safe-area-inset-bottom));
+  }
+  
+  .inputWrapper {
+    gap: 8px;
+    max-width: 100%;
+  }
+  
+  .attachBtn {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+  
+  .inputContainer {
+    padding: 6px 8px 6px 12px;
+    min-height: 44px;
+  }
+  
+  .userInput {
+    font-size: 16px;
+    padding: 6px 0;
+  }
+  
+  .inputActions {
+    gap: 2px;
+  }
+  
+  .voiceInputBtn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  
+  .sendBtn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  
+  .imagePreviewContainer {
+    left: 44px;
+    bottom: 60px;
+  }
+  
+  .imagePreviewItem {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inputArea {
+    padding: 10px 8px max(12px, env(safe-area-inset-bottom));
+  }
+  
+  .inputWrapper {
+    gap: 6px;
+  }
+  
+  .attachBtn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  
+  .inputContainer {
+    padding: 4px 6px 4px 12px;
+    border-radius: 20px;
+  }
+  
+  .userInput {
+    padding: 6px 0;
+    font-size: 16px;
+  }
+  
+  .voiceInputBtn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  
+  .sendBtn {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+  
+  .imagePreviewContainer {
+    left: 38px;
+    bottom: 52px;
+    max-height: 120px;
+  }
+  
+  .imagePreviewItem {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+

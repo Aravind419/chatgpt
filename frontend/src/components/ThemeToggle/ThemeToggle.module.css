@@ -1,0 +1,52 @@
+.themeToggle {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.themeToggle:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.themeToggle:active {
+  transform: scale(0.95);
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.text {
+  font-size: 14px;
+}
+
+/* Dark theme */
+:global(body.dark-theme) .themeToggle {
+  background: #4a9eff;
+}
+
+:global(body.dark-theme) .themeToggle:hover {
+  background: #3a8eef;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .themeToggle {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
+

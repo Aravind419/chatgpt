@@ -1,0 +1,329 @@
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, width 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+  overflow: hidden;
+  z-index: 200;
+  min-height: 0;
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%);
+  width: 0;
+}
+
+.sidebar.hoverOpen {
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.sidebarHeader {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.newChatBtn {
+  flex: 1;
+  background: #10a37f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.newChatBtn:hover {
+  background: #0e8c6d;
+}
+
+.toggleSidebarBtn {
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.2s ease;
+}
+
+.toggleSidebarBtn:hover {
+  background: #f3f4f6;
+}
+
+.conversationsList {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.conversationItem {
+  padding: 12px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.conversationItem:hover {
+  background: #f3f4f6;
+}
+
+.conversationItem.active {
+  background: #eff6ff;
+  font-weight: 600;
+}
+
+.conversationTitle {
+  flex: 1;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.conversationButtons {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.conversationItem:hover .conversationButtons,
+.conversationItem.active .conversationButtons {
+  opacity: 1;
+}
+
+.conversationEdit,
+.conversationDelete {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px;
+  transition: transform 0.2s ease;
+}
+
+.conversationEdit:hover,
+.conversationDelete:hover {
+  transform: scale(1.2);
+}
+
+.conversationTitleEdit {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #10a37f;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+}
+
+.sidebarFooter {
+  padding: 12px;
+  border-top: 1px solid #e5e7eb;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebarFooterBottom {
+  padding: 12px;
+  border-top: 1px solid #e5e7eb;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.memoriesButton,
+.settingsButton {
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.memoriesButton:hover,
+.settingsButton:hover {
+  background: #5568d3;
+  transform: translateY(-1px);
+}
+
+.memoriesButton:active,
+.settingsButton:active {
+  transform: translateY(0);
+}
+
+.logoutButton {
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.logoutButton:hover {
+  background: #5a6268;
+  transform: scale(1.02);
+}
+
+.logoutButton:active {
+  transform: scale(0.98);
+}
+
+/* Dark theme */
+:global(body.dark-theme) .sidebar {
+  background: #1e1f24;
+  border-right-color: #2a2b32;
+}
+
+:global(body.dark-theme) .sidebar.hoverOpen {
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+}
+
+:global(body.dark-theme) .sidebarHeader {
+  border-bottom-color: #2a2b32;
+}
+
+:global(body.dark-theme) .newChatBtn {
+  background: #10a37f;
+}
+
+:global(body.dark-theme) .newChatBtn:hover {
+  background: #0e8c6d;
+}
+
+:global(body.dark-theme) .toggleSidebarBtn {
+  border-color: #2a2b32;
+  color: #e5e7eb;
+}
+
+:global(body.dark-theme) .toggleSidebarBtn:hover {
+  background: #2a2b32;
+}
+
+:global(body.dark-theme) .conversationItem {
+  color: #e5e7eb;
+}
+
+:global(body.dark-theme) .conversationItem:hover {
+  background: #2a2b32;
+}
+
+:global(body.dark-theme) .conversationItem.active {
+  background: #2a2b32;
+}
+
+:global(body.dark-theme) .conversationTitleEdit {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #10a37f;
+  color: #e5e7eb;
+}
+
+:global(body.dark-theme) .sidebarFooter,
+:global(body.dark-theme) .sidebarFooterBottom {
+  border-top-color: #2a2b32;
+}
+
+:global(body.dark-theme) .memoriesButton,
+:global(body.dark-theme) .settingsButton {
+  background: #667eea;
+}
+
+:global(body.dark-theme) .memoriesButton:hover,
+:global(body.dark-theme) .settingsButton:hover {
+  background: #5568d3;
+}
+
+:global(body.dark-theme) .logoutButton {
+  background: #495057;
+}
+
+:global(body.dark-theme) .logoutButton:hover {
+  background: #3d4146;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    height: 100dvh;
+    width: 260px;
+    z-index: 300;
+  }
+  
+  .sidebar.hidden {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.hoverOpen {
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .sidebarFooter {
+    padding: 12px max(12px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Desktop positioning */
+@media (min-width: 769px) {
+  .sidebar {
+    position: relative;
+  }
+  
+  .sidebar.hidden {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    width: 0;
+  }
+}
+
+

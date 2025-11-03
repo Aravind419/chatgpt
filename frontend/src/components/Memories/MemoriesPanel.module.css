@@ -1,0 +1,292 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 399;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  height: 100dvh;
+  background: white;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 400;
+  animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.panelHeader {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.panelHeader h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panelHeader i {
+  color: #667eea;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #666;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+  background: #f3f4f6;
+}
+
+.panelContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.createForm {
+  flex-shrink: 0;
+}
+
+.formRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.typeSelect {
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 12px;
+  background: white;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.memoryInput {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.memoryInput:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.addButton {
+  padding: 8px 12px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.addButton:hover:not(:disabled) {
+  background: #5568d3;
+}
+
+.addButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.emptyState i {
+  font-size: 48px;
+  color: #ccc;
+  margin-bottom: 16px;
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.memoriesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.memoryItem {
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+  display: flex;
+  gap: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.memoryItem:hover {
+  border-color: #667eea;
+}
+
+.memoryContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.memoryType {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #667eea;
+  color: white;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.memoryContent p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.conversationTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.deleteButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #dc3545;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.deleteButton:hover {
+  background: #fee;
+}
+
+/* Dark theme */
+:global(body.dark-theme) .panel {
+  background: #1e1f24;
+  border-left-color: #2a2b32;
+}
+
+:global(body.dark-theme) .panelHeader {
+  border-bottom-color: #2a2b32;
+}
+
+:global(body.dark-theme) .panelHeader h3 {
+  color: #e5e7eb;
+}
+
+:global(body.dark-theme) .closeButton:hover {
+  background: #2a2b32;
+}
+
+:global(body.dark-theme) .typeSelect,
+:global(body.dark-theme) .memoryInput {
+  background: #2a2b32;
+  border-color: #3a3b40;
+  color: #e5e7eb;
+}
+
+:global(body.dark-theme) .memoryInput:focus {
+  border-color: #667eea;
+}
+
+:global(body.dark-theme) .memoryItem {
+  background: #2a2b32;
+  border-color: #3a3b40;
+}
+
+:global(body.dark-theme) .memoryItem:hover {
+  border-color: #667eea;
+}
+
+:global(body.dark-theme) .memoryContent p {
+  color: #e5e7eb;
+}
+
+:global(body.dark-theme) .conversationTag {
+  color: #999;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .panel {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+

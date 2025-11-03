@@ -1,0 +1,160 @@
+.authContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: var(--bg-color, #f5f5f5);
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dark-theme .authContainer {
+  background: var(--bg-color, #1a1a1a);
+}
+
+.authBox {
+  background: var(--card-bg, #ffffff);
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.dark-theme .authBox {
+  background: var(--card-bg, #2a2a2a);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.authTitle {
+  margin: 0 0 30px 0;
+  text-align: center;
+  color: var(--text-color, #333);
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.dark-theme .authTitle {
+  color: var(--text-color, #e0e0e0);
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  color: var(--text-color, #333);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.dark-theme .formGroup label {
+  color: var(--text-color, #e0e0e0);
+}
+
+.formGroup input {
+  padding: 12px;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+  background: var(--input-bg, #ffffff);
+  color: var(--text-color, #333);
+}
+
+.dark-theme .formGroup input {
+  border-color: var(--border-color, #444);
+  background: var(--input-bg, #333);
+  color: var(--text-color, #e0e0e0);
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: var(--primary-color, #007bff);
+}
+
+.formGroup input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.authButton {
+  padding: 12px 24px;
+  background: var(--primary-color, #007bff);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 10px;
+}
+
+.authButton:hover:not(:disabled) {
+  background: var(--primary-hover, #0056b3);
+}
+
+.authButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  padding: 12px;
+  background: #fee;
+  color: #c33;
+  border-radius: 6px;
+  font-size: 14px;
+  border: 1px solid #fcc;
+}
+
+.dark-theme .errorMessage {
+  background: #422;
+  color: #f88;
+  border-color: #633;
+}
+
+.authSwitch {
+  margin-top: 24px;
+  text-align: center;
+  color: var(--text-color, #666);
+  font-size: 14px;
+}
+
+.dark-theme .authSwitch {
+  color: var(--text-color, #aaa);
+}
+
+.switchLink {
+  background: none;
+  border: none;
+  color: var(--primary-color, #007bff);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: inherit;
+  padding: 0;
+  margin-left: 4px;
+}
+
+.switchLink:hover:not(:disabled) {
+  color: var(--primary-hover, #0056b3);
+}
+
+.switchLink:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
